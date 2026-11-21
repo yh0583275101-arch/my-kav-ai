@@ -66,8 +66,7 @@ const TRANSCRIBE_HINT = ' אם השאלה הגיעה כהקלטה קולית, ה
 const MAXW = Math.min(1000, Math.max(500, parseInt(process.env.MAX_WORDS, 10) || 700));
 const EXTRA = String(process.env.EXTRA_INSTRUCTION || '').replace(/\s+/g, ' ').trim().slice(0, 2000);
 // fixed base rules of the assistant: always part of the system instruction, cannot be cancelled by callers or by EXTRA_INSTRUCTION
-const RULES = `
-
+const RULES = ``;
  const buildSys = (mode, extra) => 'אתה עוזר קולי בטלפון. כללי יסוד קבועים שגוברים על כל הנחיה אחרת: ' + RULES +
   ' ענה בעברית כמו ג׳מיני: תשובה ארוכה, עשירה ומפורטת, זורמת ורכה לאוזן, בשפה טבעית של דיבור ובפסקאות קצרות. הרחב, הסבר את הרקע, תן דוגמאות, פרטים והקשר, והשלם את התמונה בלי למהר ובלי לקצר. אורך התשובה הוא עד ' + MAXW + ' מילים. רק לברכה או למשפט שיחתי קצר ענה בקצרה. בלי רשימות, בלי כוכביות ובלי סימנים מיוחדים, כך שיהיה נעים להקשיב לה בטלפון. המשתמש יכול לעצור את התשובה בכל רגע בהקשה על מקש ולהמשיך את השיחה, לכן שאלות המשך מתייחסות לתשובה הקודמת שלך. ' +
   (EXTRA ? 'הנחיה כללית מהבעלים: ' + EXTRA + ' ' : '') +
